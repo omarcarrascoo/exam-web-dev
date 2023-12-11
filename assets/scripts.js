@@ -7,12 +7,22 @@ function submitForm() {
     // Profile Picture Data
     const profilePicture = document.getElementById("profilePicture").value;
 
-    // Hotel Reservation Data
-    const startDate = document.getElementById("startDate").value;
-    const endDate = document.getElementById("endDate").value;
-
     // Contact Number Data
     const contactNumber = document.getElementById("contactNumber").value;
+
+    var pattern = /^[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}$/;
+
+      if (pattern.test(contactNumber)) {
+        console.log("ok");
+      } else {
+        alert("invalid number")
+      }
+    
+    // Hotel Reservation Data
+    const startDate = new Date(document.getElementById("startDate").value);
+    const endDate = new Date(document.getElementById("endDate").value);
+
+  
 
     // Client-side validation for date overlap
     if (startDate >= endDate) {
@@ -22,11 +32,14 @@ function submitForm() {
 
     const existingStartDate = new Date('2023-12-01');
     const existingEndDate = new Date('2023-12-24');
+    console.log(existingStartDate);
+    console.log(existingEndDate);
 
-    if (startDate > existingEndDate && endDate > existingStartDate) {
-        alert("Selected dates overlap with an existing reservation next reservation available in the " + existingEndDate)
-        return
+    if (!(endDate <= existingStartDate || startDate >= existingEndDate)) {
+        alert("Selected dates overlap with an existing reservation. The next available reservation starts on " + existingEndDate);
+        return;
     }
+    
 
     // Client-side validation
     if (password !== confirmPassword) {
