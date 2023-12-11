@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration and Hotel Reservation Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<h2>User Registration and Hotel Reservation Form</h2>
+
+<form id="registrationForm">
+    <!-- User Registration Section -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+
+    <!-- Profile Picture Upload Section -->
+    <label for="profilePicture">Profile Picture (JPEG or PNG):</label>
+    <input type="file" id="profilePicture" name="profilePicture" accept="image/jpeg, image/png" required><br>
+
+    <!-- Hotel Reservation Section -->
+    <label for="dateRange">Hotel Reservation Date Range:</label>
+    <input type="date" id="startDate" name="startDate" required>
+    <input type="date" id="endDate" name="endDate" required><br>
+
+    <!-- Contact Number Section -->
+    <label for="contactNumber">Contact Number (xxx-xxx-xxxx or xxx xxx xxxx):</label>
+    <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{3}[-\s]?[0-9]{3}[-\s]?[0-9]{4}" required><br>
+
+    <!-- Submit Button -->
+    <input class="btn" type="button" value="Submit" onclick="submitForm()">
+</form>
+<div class="dateError" id="dateError"></div>
+<table id="displayTable"></table>
+
+<script src="./assets/scripts.js"></script>
+
+</body>
+</html>
